@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<openerp>
+<odoo>
 <data>
 
     <record id="mrp_production_form_inherit_view" model="ir.ui.view">
@@ -361,4 +361,4 @@
     </record>
 
 </data>
-</openerp>
+</odoo>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
     <data>
         <!--
         Work Order Report
@@ -87,4 +87,4 @@
         <menuitem name="Reports" sequence="99" action="action_report_mrp_workorder" id="menu_report_mrp_workorders_tree" parent="base.menu_mrp_root"/>
 
   </data>
-</openerp>
+</odoo>

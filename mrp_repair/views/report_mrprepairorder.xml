@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
+<odoo>
 <data>
 <template id="report_mrprepairorder">
         <t t-foreach="docs" t-as="o">
@@ -163,4 +163,4 @@
     </t>
 </template>
 </data>
-</openerp>
+</odoo>
