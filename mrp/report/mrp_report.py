@@ -1,20 +1,20 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from odoo import fields,models
+from openerp.osv import fields,osv
 
 
-class report_workcenter_load(models.Model):
+class report_workcenter_load(osv.osv):
     _name="report.workcenter.load"
     _description="Work Center Load"
     _auto = False
     _log_access = False
-
-    name = fields.Char('Week', required=True)
-    workcenter_id = fields.Many2one('mrp.workcenter', 'Work Center', required=True)
-    cycle = fields.Float('Number of Cycles')
-    hour = fields.Float('Number of Hours')
-
+    _columns = {
+        'name': fields.char('Week', required=True),
+        'workcenter_id': fields.many2one('mrp.workcenter', 'Work Center', required=True),
+        'cycle': fields.float('Number of Cycles'),
+        'hour': fields.float('Number of Hours'),
+    }
 
     def init(self, cr):
         cr.execute("""
@@ -36,17 +36,17 @@ class report_workcenter_load(models.Model):
 
 
 
-class report_mrp_inout(models.Model):
+class report_mrp_inout(osv.osv):
     _name="report.mrp.inout"
     _description="Stock value variation"
     _auto = False
     _log_access = False
     _rec_name = 'date'
-
-    date = fields.Char('Week', required=True)
-    value = fields.Float('Stock value', required=True, digits=(16,2))
-    company_id = fields.Many2one('res.company', 'Company', required=True)
-
+    _columns = {
+        'date': fields.char('Week', required=True),
+        'value': fields.float('Stock value', required=True, digits=(16,2)),
+        'company_id': fields.many2one('res.company', 'Company', required=True),
+    }
 
     def init(self, cr):
         cr.execute("""

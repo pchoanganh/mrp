@@ -8,7 +8,10 @@
 Support Migration old modules odoo v6,v7,v8 to v9,v10.
 
 Debug: 
+- Example
 https://github.com/it-projects-llc/odoo-development/blob/master/docs/migration/index.rst
+- Comparison Table of Odoo 8, 9, 10, CE, EE
+https://docs.google.com/spreadsheets/d/1PkwRW6I3Liif7VBz-wXSsjO1ZQL1kbGbSd1aFNCuZIw/edit#gid=0
 
 
 ### Installation
