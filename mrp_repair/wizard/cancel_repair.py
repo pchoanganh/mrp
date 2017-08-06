@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from openerp.osv import osv,fields
-from openerp.tools.translate import _
-from openerp.exceptions import UserError
+from odoo import models,fields
+from odoo.tools.translate import _
+from odoo.exceptions import UserError
 
-class repair_cancel(osv.osv_memory):
+class repair_cancel(models.TransientModel):
     _name = 'mrp.repair.cancel'
     _description = 'Cancel Repair'
 
-    def cancel_repair(self, cr, uid, ids, context=None):
+    def cancel_repair(self):
         """ Cancels the repair
         @param self: The object pointer.
         @param cr: A database cursor
@@ -22,18 +22,18 @@ class repair_cancel(osv.osv_memory):
             context = {}
         record_id = context and context.get('active_id', False) or False
         assert record_id, _('Active ID not Found')
-        repair_order_obj = self.pool.get('mrp.repair')
-        repair_line_obj = self.pool.get('mrp.repair.line')
-        repair_order = repair_order_obj.browse(cr, uid, record_id, context=context)
+        repair_order_obj = self.env['mrp.repair']
+        repair_line_obj = self.env['mrp.repair.line']
+        repair_order = repair_order_obj.browse(record_id)
 
         if repair_order.invoiced or repair_order.invoice_method == 'none':
-            repair_order_obj.action_cancel(cr, uid, [record_id], context=context)
+            repair_order_obj.action_cancel([record_id])
         else:
             raise UserError(_('Repair order is not invoiced.'))
 
         return {'type': 'ir.actions.act_window_close'}
 
-    def fields_view_get(self, cr, uid, view_id=None, view_type='form', context=None, toolbar=False, submenu=False):
+    def fields_view_get(self, view_id=None, view_type='form', toolbar=False, submenu=False):
         """ Changes the view dynamically
         @param self: The object pointer.
         @param cr: A database cursor
@@ -43,14 +43,14 @@ class repair_cancel(osv.osv_memory):
         """
         if context is None:
             context = {}
-        res = super(repair_cancel, self).fields_view_get(cr, uid, view_id=view_id, view_type=view_type, context=context, toolbar=toolbar,submenu=False)
+        res = super(repair_cancel, self).fields_view_get(view_id=view_id, view_type=view_type, toolbar=toolbar,submenu=False)
         record_id = context and context.get('active_id', False) or False
         active_model = context.get('active_model')
 
         if not record_id or (active_model and active_model != 'mrp.repair'):
             return res
 
-        repair_order = self.pool.get('mrp.repair').browse(cr, uid, record_id, context=context)
+        repair_order = self.env['mrp.repair'].browse(record_id)
         if not repair_order.invoiced:
             res['arch'] = """
                 <form string="Cancel Repair" version="7.0">

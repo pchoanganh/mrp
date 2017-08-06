@@ -1,13 +1,13 @@
 ## -*- coding: utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from openerp.osv import osv
-from openerp.report import report_sxw
+from odoo import models
+from odoo.report import report_sxw
 
 
 class bom_structure(report_sxw.rml_parse):
-    def __init__(self, cr, uid, name, context):
-        super(bom_structure, self).__init__(cr, uid, name, context=context)
+    def __init__(self, name, context):
+        super(bom_structure, self).__init__(name)
         self.localcontext.update({
             'get_children': self.get_children,
         })
@@ -38,7 +38,7 @@ class bom_structure(report_sxw.rml_parse):
         return children
 
 
-class report_mrpbomstructure(osv.AbstractModel):
+class report_mrpbomstructure(models.AbstractModel):
     _name = 'report.mrp.report_mrpbomstructure'
     _inherit = 'report.abstract_report'
     _template = 'mrp.report_mrpbomstructure'
