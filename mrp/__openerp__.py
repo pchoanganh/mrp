@@ -4,7 +4,7 @@
 
 {
     'name': 'MRP',
-    'version': '1.1',
+    'version': '10.0.1.0.0',
     'website': 'https://www.odoo.com/page/manufacturing',
     'category': 'Manufacturing',
     'sequence': 14,

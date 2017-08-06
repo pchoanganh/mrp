@@ -4,7 +4,7 @@
 
 {
     'name': 'Repairs Management',
-    'version': '1.0',
+    'version': '10.0.1.0.0',
     'sequence': 200,
     'category': 'Manufacturing',
     'summary': 'Repair broken or damaged products',
