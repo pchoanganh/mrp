@@ -8,7 +8,7 @@
             <field name="model">stock.move.consume</field>
             <field name="arch" type="xml">
                 <form string="Consume Move">
-                    <group string="Consume Products">
+                    <group name="Consume Products">
                         <field name="product_id" readonly="1"/>
                         <label for="product_qty"/>
                         <div>

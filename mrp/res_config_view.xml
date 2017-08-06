@@ -22,13 +22,13 @@
                         <button string="Apply" type="object" name="execute" class="oe_highlight"/>
                         <button string="Cancel" type="object" name="cancel" class="oe_link"/>
                     </header>
-                    <group string="Manufacturing Order">
+                    <group name="Manufacturing Order">
                         <field name="group_product_variant" widget="radio"/>
                         <field name="module_mrp_byproduct" widget="radio"/>
                         <field name="group_mrp_routings" widget="radio"/>
                         <field name="module_mrp_operations" widget="radio"/>
                     </group>
-                    <group string="Master Data">
+                    <group name="Master Data">
                         <field name="group_rounding_efficiency" widget="radio"/>
                     </group>
                 </form>

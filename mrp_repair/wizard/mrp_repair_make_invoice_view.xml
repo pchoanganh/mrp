@@ -9,7 +9,7 @@
             <field name="model">mrp.repair.make_invoice</field>
             <field name="arch" type="xml">
             <form string="Create invoices">
-                <group string="Do you really want to create the invoice(s)?">
+                <group name="Do you really want to create the invoice(s)?">
                     <field name="group"/>
                 </group>
                 <footer>

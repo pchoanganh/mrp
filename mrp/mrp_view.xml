@@ -191,14 +191,14 @@
                     <notebook>
                         <page string="General Information">
                             <group>
-                                <group string="Capacity Information">
+                                <group name="Capacity Information">
                                     <field name="time_efficiency"/>
                                     <field name="capacity_per_cycle"/>
                                     <field name="time_cycle" widget="float_time"/>
                                     <field name="time_start" widget="float_time"/>
                                     <field name="time_stop" widget="float_time"/>
                                 </group>
-                                <group string="Costing Information">
+                                <group name="Costing Information">
                                     <field name="product_id" on_change="on_change_product_cost(product_id)"/>
                                     <field name="costs_hour"/>
                                     <field name="costs_hour_account_id" groups="analytic.group_analytic_accounting"/>
@@ -628,7 +628,7 @@
                     <notebook>
                         <page string="Consumed Products">
                             <group>
-                                <group string="Products to Consume">
+                                <group name="Products to Consume">
                                     <field name="move_lines" nolabel="1" options="{'reload_on_button': true}">
                                         <tree decoration-info="state == 'draft'" decoration-muted="state in ('cancel','done')" decoration-danger="state in ('confirmed','waiting')" string="Products to Consume">
                                             <field name="product_id"/>
@@ -647,7 +647,7 @@
                                         </tree>
                                     </field>
                                 </group>
-                                <group string="Consumed Products">
+                                <group name="Consumed Products">
                                     <field name="move_lines2" nolabel="1" options="{'reload_on_button': true}">
                                        <tree decoration-danger="scrapped==True" decoration-info="state == 'draft'" decoration-muted="state == 'cancel'" string="Consumed Products" editable="bottom">
                                            <field name="product_id" readonly="1"/>
@@ -663,7 +663,7 @@
                         </page>
                         <page string="Finished Products">
                             <group>
-                                <group string="Products to Produce">
+                                <group name="Products to Produce">
                                     <field name="move_created_ids" nolabel="1" options="{'reload_on_button': true}">
                                         <tree string="Products to Finish">
                                             <field name="product_id"/>
@@ -673,7 +673,7 @@
                                         </tree>
                                     </field>
                                 </group>
-                                <group string="Produced Products">
+                                <group name="Produced Products">
                                     <field name="move_created_ids2" nolabel="1" options="{'reload_on_button': true}">
                                         <tree decoration-danger="scrapped==True" decoration-info="state == 'draft'" decoration-muted="state == 'cancel'" string="Finished Products">
                                             <field name="product_id" readonly="1"/>

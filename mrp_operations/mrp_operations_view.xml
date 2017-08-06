@@ -83,21 +83,21 @@
                 <notebook>
                 <page string="Information">
                     <group>
-                        <group string="Planned Date">
+                        <group name="Planned Date">
                             <field name="date_planned"/>
                             <field name="date_planned_end"/>
                         </group>
 
-                        <group string="Duration">
+                        <group name="Duration">
                             <field name="cycle"/>
                             <field name="hour" widget="float_time"/>
                         </group>
-                        <group string="Actual Production Date" >
+                        <group name="Actual Production Date" >
                             <field name="date_start" readonly="1"/>
                             <field name="date_finished" readonly="1"/>
                             <field name="delay" widget="float_time"/>
                         </group>
-                        <group string="Product to Produce">
+                        <group name="Product to Produce">
                             <field name="product"/>
                             <field name="qty"/>
                             <field name="uom" widget="selection"/>
